@@ -47,16 +47,7 @@ class LinearRegression(modelInterface.ModelInterface):
         m = self.X.shape[0]
         Yhat = self.H(self.X)
         error = Yhat - self.Y
-        print(f"Shape of Yhat (Predictions): {Yhat}")
-        print(f"Shape of Y (Actual values): {self.Y}")
-        print(f"Shape of error (Yhat - Y): {error.shape}")
-        print(f"Shape of X (Feature matrix): {self.X}")
-        print(f"Shape of X.T (Transposed feature matrix): {self.X.T.shape}")
-        print(f"Shape of theta1 (Transposed feature matrix): {self.theta1.shape}")
-
         theta0 = np.sum(error) / m
-        print(f"Shape of theta0 (Transposed feature matrix): {theta0}, {error}")
-
         theta1 = (self.X.T @ error) / m
         self.theta0 -= self.learning_rate * theta0
         self.theta1 -= self.learning_rate * theta1
