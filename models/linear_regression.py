@@ -30,10 +30,8 @@ class LinearRegression(modelInterface.ModelInterface):
         plt.show()
 
     def initialize_theta(self, X):
-        if self.theta0 is None:
-            self.theta0 = 0
-        if self.theta1 is None:
-            self.theta1 = np.random.rand(X.shape[1], 1)
+        self.theta0 = 0
+        self.theta1 = np.random.rand(X.shape[1], 1)
 
     def H(self, X):
         self.initialize_theta
