@@ -34,7 +34,8 @@ class LinearRegression(modelInterface.ModelInterface):
         self.theta1 = np.random.rand(X.shape[1], 1)
 
     def H(self, X):
-        self.initialize_theta
+        if self.theta0 is None or self.theta1 is None:
+            self.initialize_theta(X)
         return (X @ self.theta1) + self.theta0
 
     def calculate_cost(self, Yhat, Y):
